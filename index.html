@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Session Planner</title>
+
+  <meta
+    name="description"
+    content="Plan your focused study sessions, track total time, and build a realistic study roadmap."
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">Study<span>Flow</span></div>
+    <nav class="nav">
+      <a href="#hero">Home</a>
+      <a href="#planner">Planner</a>
+      <a href="#tips">Tips</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <h1>Plan a Focused Study Session</h1>
+        <p>
+          Break your study time into clear blocks, track how long you’ll work,
+          and build a realistic study plan for the day.
+        </p>
+        <button class="primary-btn" id="startPlannerBtn">
+          Build My Session
+        </button>
+      </div>
+    </section>
+
+    <!-- Planner Section -->
+    <section id="planner" class="planner">
+      <h2>Study Session Planner</h2>
+      <p class="planner-intro">
+        Add subjects, set durations, and choose priorities. We’ll calculate your
+        total study time and give a quick load rating.
+      </p>
+
+      <!-- Quick preset -->
+      <div class="preset-panel">
+        <p>Need a starting point?</p>
+        <button class="secondary-btn" id="lightPresetBtn">Light session (60 min)</button>
+        <button class="secondary-btn" id="balancedPresetBtn">Balanced session (120 min)</button>
+        <button class="secondary-btn" id="deepPresetBtn">Deep focus (180 min)</button>
+      </div>
+
+      <!-- Form -->
+      <form id="sessionForm" class="session-form">
+        <div class="form-row">
+          <label for="subjectInput">Subject / Task</label>
+          <input
+            type="text"
+            id="subjectInput"
+            placeholder="Example: Calculus revision"
+            required
+          />
+        </div>
+        <div class="form-row">
+          <label for="durationInput">Duration (minutes)</label>
+          <input
+            type="number"
+            id="durationInput"
+            min="10"
+            step="5"
+            placeholder="25"
+            required
+          />
+        </div>
+        <div class="form-row">
+          <label for="prioritySelect">Priority</label>
+          <select id="prioritySelect">
+            <option value="High">High</option>
+            <option value="Medium" selected>Medium</option>
+            <option value="Low">Low</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="timeSlotInput">Time slot (optional)</label>
+          <input
+            type="text"
+            id="timeSlotInput"
+            placeholder="e.g. 7–8 PM"
+          />
+        </div>
+        <button type="submit" class="primary-btn">Add Block</button>
+      </form>
+
+      <!-- Output -->
+      <div class="planner-output">
+        <div>
+          <h3>Planned Blocks</h3>
+          <ul id="sessionList" class="session-list">
+            <!-- JS will inject items -->
+          </ul>
+        </div>
+
+        <div class="planner-summary">
+          <p>
+            Total study time:
+            <span id="totalMinutes">0</span> min
+          </p>
+          <p>
+            Approx. pomodoro cycles:
+            <span id="pomodoroCount">0</span>
+          </p>
+          <p class="load-label">
+            Load rating:
+            <span id="loadLabel">None</span>
+          </p>
+
+          <div class="load-bar">
+            <div id="loadBarFill" class="load-bar-fill"></div>
+          </div>
+
+          <p class="hint-text" id="hintText">
+            Add your first block to see your session load.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Study tips / About -->
+    <section id="tips" class="tips">
+      <h2>Study Strategy Notes</h2>
+      <p>
+        This planner is designed as a rapid front-end prototype to support
+        focused learning. It uses simple rules of thumb: short blocks, clear
+        priorities, and a quick visual load indicator.
+      </p>
+      <ul class="tips-list">
+        <li>Keep blocks between 25–50 minutes to avoid burnout.</li>
+        <li>Mix one high-priority block with one lighter task.</li>
+        <li>Use the load rating as a reality check: don’t overload the day.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 StudyFlow · Rapid Ideation Prototype</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
